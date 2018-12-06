@@ -1,0 +1,52 @@
+<aside class="Hui-aside">
+	<div class="menu_dropdown bk_2">
+
+		<dl id="menu-member">
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href={:url('member/memberlist')} data-title="会员列表" href="javascript:;">会员列表</a></li>
+					<li><a data-href="{:url('member/memberDel')}" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
+					<li><a data-href="{:url('integral/integralList')}" data-title="积分管理" href="javascript:;">积分管理</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-shop">
+			<dt><i class="Hui-iconfont">&#xe60d;</i>商铺管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href={:url('shop/shopList')} data-title="商铺列表" href="javascript:;">商铺列表</a></li>
+					<!--<li><a data-href="{:url('shop/doDel')}" data-title="删除的商铺" href="javascript:;">删除的商铺</a></li>-->
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-wechat">
+			<dt><i class="Hui-iconfont">&#xe60d;</i>微信服务号设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href={:url('member_list')} data-title="自定义回复" href="javascript:;">自定义回复</a></li>
+					<li><a data-href="member-level.html" data-title="等级管理" href="javascript:;">等级管理</a></li>
+					<li><a data-href="member-scoreoperation.html" data-title="积分管理" href="javascript:;">积分管理</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-admin">
+			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="{:url('user/adminList')}" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+
+		<dl id="menu-system">
+			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="system-base.html" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

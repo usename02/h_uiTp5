@@ -1,0 +1,116 @@
+{extend name='public/_base'/}
+{block name='header'}{/block} {//关掉头部}
+{block name='menu'}{/block} {//关掉菜单}
+{block name='seo'}
+<title>{$title|default="标题"}</title>
+<meta name="keywords" content="{$keywords|default='关键字'}">
+<meta name="description" content="{$desc|default='描述'}">
+{/block}
+{block name='content'}
+<article class="cl pd-20">
+    <form action="" method="post" class="form form-horizontal" id="form-admin-add">
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>店仓名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input  type="text" class="input-text" value="" placeholder="" id="NAME" name="NAME">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否允许零售：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input  type="text" class="input-text" value="" placeholder="" id="TYPE" name="TYPE">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>城市：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" autocomplete="off" value=""  placeholder="" id="CITY" name="CITY">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>店铺状态：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input  type="text" class="input-text" value="" placeholder="" id="STATUS" name="STATUS">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>所属经销商：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input  type="text" class="input-text" value="" placeholder="" id="CUSTOMER" name="CUSTOMER">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>二维码：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="email" class="input-text" placeholder="" name="QRCODE" id="QRCODE" value="">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>细节补充：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input  type="text" class="input-text" value="" placeholder="" id="SUPPLEMENT" name="SUPPLEMENT">
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius disabled" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;" id="submit" >
+            </div>
+        </div>
+    </form>
+
+
+</article>
+{/block}
+<!--隐藏搜索框-->
+{block name='search'}{/block}
+{block name='js'}
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script>
+    $(function(){
+        //防止用户无更新提交,只有表中数据有变化时才允许提交
+        $("form").children().change(function(){
+            $("#submit").removeClass('disabled');
+        });
+        //失去焦点时,检查店铺名是否重复
+        $("#name").blur(function(){
+            $.ajax({
+                type: 'GET',
+                url: "checkShopName",
+                data:{name:$(this).val()},
+                dataType: 'json',
+                success: function(data){
+                    if (data.status == 1) {
+                        alert(data.message);
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+
+        $("#submit").on("click", function(event){
+            $.ajax({
+                type: "POST",
+                url: "{:url('shop/addShop')}",
+                data: $("#form-admin-add").serialize(),
+                dataType: "json",
+                success: function(data){
+                    if (data.status == 1) {
+                        alert(data.message);
+
+                    } else {
+                        alert(data.message);
+
+                    }
+                }
+            });
+
+        })
+    })
+</script>
+{/block}
+
