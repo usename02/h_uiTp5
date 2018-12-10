@@ -241,9 +241,9 @@ class Wechat
     {
         $this->assign('title', '编辑默认回复');
         return $this->_form($this->table, 'form', 'keys', [], ['keys' => 'subscribe']);
+
     }
-
-
+    
     /**
      * 无配置默认回复
      * @return array|string
@@ -257,7 +257,7 @@ class Wechat
         $this->assign('title', '编辑无配置默认回复');
         return $this->_form($this->table, 'form', 'keys', [], ['keys' => 'default']);
     }
-
+//
     /**
      * 添加数据处理
      * @param array $data
@@ -455,5 +455,6 @@ class Wechat
         $info['verify_type'] = intval($info['verify_type_info']) !== 0 ? -1 : 0;
         return $info;
     }
+
 
 }
