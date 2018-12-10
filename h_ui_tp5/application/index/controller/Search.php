@@ -19,6 +19,7 @@ class Search extends Base
         if ($searchKeyword){
 //             判断条件
             $map['name'] = ['like','%'.$searchKeyword.'%'];
+
             $searchres = Db::table('user')->where($map)->find();
             $this->assign( 'list',array(
                 'searchres'=>$searchres,

@@ -15,21 +15,61 @@
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
-			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
-				<th width="80">ID</th>
-				<th width="100">用户名</th>
-				<th width="100">密码</th>
-				<th width="100">操作</th>
-			</tr>
+		<tr class="text-c">
+			<th width="25"><input type="checkbox" name="" value=""></th>
+			<th width="80">ID
+			</th>
+			<th width="">微信贼会员编号
+			</th>
+			<th width="">姓名
+			</th>
+			<th width="">电话
+			</th>
+			<th width="">积分
+			</th>
+			<th width="">累计积分
+			</th>
+			<th width="">小程序OPENID
+			</th>
+			<th width="">服务号OPENID
+			</th>
+			<th width="">会员卡号
+			</th>
+			<th>卡密码
+			</th>
+			<th>卡类型
+			</th>
+			<th>开卡店仓
+			</th>
+			<th>有效
+			</th>
+			<th>版本信息号
+			</th>
+
+
+		</tr>
 		</thead>
 		<tbody>
 		{volist name="member" id="vo"}
 			<tr class="text-c">
 				<td><input type="checkbox" value="1" name=""></td>
 				<td>{$vo.ID}</td>
-				<td>{$vo.NAME}</td>
-				<td>{$vo.password}</td>
+				<td>{$vo.CODE}</td>
+				<td>{$vo.VIPNAME}</td>
+				<td>{$vo.MOBIL}</td>
+				<td>{$vo.INTEGRAL}</td>
+				<td>{$vo.LJJNTEGRAL}</td>
+				<td>{$vo.OPENID_XCX}</td>
+				<td>{$vo.OPENID_FFH}</td>
+				<td>{$vo.UNIONID}</td>
+				<td>{$vo.CARDNO}</td>
+				<td>{$vo.PASS_WORD}</td>
+				<td>{$vo.C_VIPTYPE}</td>
+				<td>{$vo.C_STORE_ID}</td>
+				<td>{$vo.VIPSTATE}</td>
+				<td>{$vo.MSGVAR}</td>
+
+
 				<td class="td-manage">
 					<a title="编辑" href="javascript:;" onclick="member_edit('编辑','{:url("member/memberEdit",["ID"=>$vo["ID"]])}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 					<a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','{:url("member/MemberPw",["ID"=>$vo["ID"]])}','10001','600','270')" href="javascript:;" title="修改密码">

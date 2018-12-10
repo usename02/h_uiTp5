@@ -26,12 +26,22 @@ class Member extends Base
 //        遍历member表
         foreach ($result as $value){
             $data = [
-                'ID' => $value->ID,  //主键
-                'NAME' => $value->NAME,  //店仓名
-                'password'=>$value->password,//密码
-                'status'=>$value->status,//判断值
-                'delete_time'=> $value->delete_time,//删除时间
-                'is_delete' => $value->is_delete,   //判断删除状态
+                    'ID' => $value->ID,  //主键
+                    'CODE'=>$value->CODE,//微信贼会员编号
+                    'VIPNAME'=>$value->VIPNAME,//姓名
+                    'MOBIL'=>$value->MOBIL,//电话
+                    'INTEGRAL'=>$value->INTEGRAL,//积分
+                    'LJJNTEGRAL'=>$value->LJJNTEGRAL,//累计积分
+                    'OPENID_XCX'=>$value->OPENID_XCX,//小程序OPENID
+                    'OPENID_FFH'=>$value->OPENID_FFH,//服务号OPENID
+                    'UNIONID'=>$value->UNIONID,//开放平台UNIONID
+                    'CARDNO'=>$value->CARDNO,//会员卡号
+                    'PASS_WORD'=>$value->PASS_WORD,//卡密码
+                    'C_VIPTYPE'=>$value->C_VIPTYPE,//卡类型
+                    'C_STORE_ID'=>$value->C_STORE_ID,//开卡店仓
+                    'VIPSTATE'=>$value->VIPSTATE,//有效
+                    'MSGVAR'=>$value->MSGVAR,//消息版本号
+
             ];
             //,保存到数组   $MenberList中
             $MemberList[] = $data;

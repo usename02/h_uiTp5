@@ -425,8 +425,6 @@ class Wechat
         }
         return 'success';
     }
-
-
     /**
      * 授权数据过滤转换处理
      * @param array $info

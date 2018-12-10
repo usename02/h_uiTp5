@@ -57,11 +57,15 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="40">ID</th>
-				<th width="100">用户名</th>
-				<th width="150">邮箱</th>
+				<th>员工号</th>
+				<th width="70">用户名</th>
+				<th width="100">邮箱</th>
+				<th>手机号</th>
+				<th>店仓编号</th>
+				<th>在职状态</th>
 				<th width="100">角色</th>
 				<th width="50">登陆次数</th>
-				<th width="130">上次登陆时间</th>
+				<th width="100">上次登陆时间</th>
 				<th width="100">是否已启用</th>
 				<th width="100">操作</th>
 			</tr>
@@ -71,8 +75,12 @@
 			<tr class="text-c">
 				<td><input type="checkbox" value="1" name=""></td>
 				<td>{$vo.id}</td>
+				<td>{$vo.NO}</td>
 				<td>{$vo.name}</td>
 				<td>{$vo.email}</td>
+				<td>{$vo.HANDSET}</td>
+				<td>{$vo.STORE}</td>
+				<td>{$vo.INCUMBENCY_STS}</td>
 				<td>{$vo.role}</td>
 				<td>{$vo.login_count}</td>
 				<td>{$vo.login_time}</td>

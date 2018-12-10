@@ -84,7 +84,7 @@ class User extends  Base
         $userRole = Session::get('user_info.name');
 //var_dump($userRole);
         if ($userRole =='admin') {
-            $listRows = 2;//每页显示$page条数据
+            $listRows = 5;//每页显示$page条数据
             $list = UserModel::paginate($listRows, $simple = false);  //admin用户可以查看所有记录,数据要经过模型获取器处理
             //分页显示输出
             $page=$list->render();

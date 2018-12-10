@@ -33,7 +33,8 @@ class Member extends Model
     protected $type = [
         'hiredate'=>'timestamp'
     ];
-
+//定义表中的 服务号OPENID
+    protected $OPENID_FFH = 'OPENID_FFH';
     // 定义自动完成的属性
     protected $insert = ['status' => 1];
 }
