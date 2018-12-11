@@ -55,11 +55,11 @@ class Shop extends Base
             $shopList[] = $data;
         }
         $listRows = 5;
-        $list = ShopModel::paginate($listRows , $simple = false,[
-                    'type'=>'Bootstrap6'
-                                                            ]);
+        $list = ShopModel::paginate($listRows , $simple = false,['type'=>'Bootstrap6']);
+//        var_dump($list);
         //分页显示输出
         $page=$list->render();
+        var_dump($page);
         $this -> view -> assign('page', $page);
         $this -> view -> assign('list', $list);
         $this -> view -> assign('shop', $shopList);

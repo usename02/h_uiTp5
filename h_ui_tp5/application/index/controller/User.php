@@ -86,11 +86,11 @@ class User extends  Base
 //var_dump($userRole);
         if ($userRole =='admin') {
             $listRows = 3;//每页显示$page条数据
-            $list = UserModel::paginate($listRows, $simple = false,[ 'type'=>'Bootstrap6' ]);
-                var_dump($list);
+            $list = UserModel::paginate($listRows, false,[ 'type'=>'Bootstrap6' ]);
  //admin用户可以查看所有记录,数据要经过模型获取器处理
             //分页显示输出
             $page=$list->render();
+            var_dump($page);
 //           总页数
             $total = $list->total();
 
@@ -100,8 +100,8 @@ class User extends  Base
             $list = UserModel::all(['name'=>$userRole]);
         }
         $this -> view -> assign('list', $list);
-var_dump($page);
-        $this->assign('page', $page);
+//var_dump($page);
+        $this-> view-> assign('page', $page);
         //渲染管理员列表模板
         return $this -> view -> fetch('admin/admin-list');
     }

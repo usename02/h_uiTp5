@@ -12,6 +12,7 @@ use think\Request;
 use app\index\model\Member as MemberModel;
 use think\Db;
 use think\session;
+
 class Member extends Base
 {
 //    会员列表
@@ -24,8 +25,9 @@ class Member extends Base
             }
         );
 //        获取分页的数据
-$list = MemberModel::paginate(3,false,['type'=>'Bootstrap6']);
-        //分页显示输出
+$list = MemberModel::paginate($listRows = 3, $simple = false,['type'=>'Bootstrap6']);
+var_dump($result);
+            //分页显示输出
         $page=$list->render();
 var_dump($page);/*取不到样式*/
         $count = Db::name('member')->count();
@@ -52,12 +54,6 @@ var_dump($page);/*取不到样式*/
             //,保存到数组   $MenberList中
             $MemberList[] = $data;
         }
-        $page = 5;
-//        $list = MemberModel::paginate($page,$simple=false,['type'=>'Bootstrap6']);
-//        //分页显示输出
-//        $page=$list->render();
-
-
         $this -> view -> assign('page', $page);
         $this -> view -> assign('member', $MemberList);
         $this -> view -> assign('count', $count);
