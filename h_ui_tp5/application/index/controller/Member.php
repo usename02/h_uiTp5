@@ -7,6 +7,7 @@
  */
 
 namespace app\index\controller;
+use think\paginator\driver\Bootstrap6;
 use think\Request;
 use app\index\model\Member as MemberModel;
 use think\Db;
@@ -22,6 +23,11 @@ class Member extends Base
                 $query->where('ID')->find();
             }
         );
+//        获取分页的数据
+$list = MemberModel::paginate(3,false,['type'=>'Bootstrap6']);
+        //分页显示输出
+        $page=$list->render();
+var_dump($page);/*取不到样式*/
         $count = Db::name('member')->count();
 //        遍历member表
         foreach ($result as $value){
@@ -47,12 +53,12 @@ class Member extends Base
             $MemberList[] = $data;
         }
         $page = 5;
-        $list = MemberModel::paginate($page);
-        //分页显示输出
-        $page=$list->render();
-//        var_dump($shopList);
-        $this -> view -> assign('list', $list);
-//        var_dump($shopList);
+//        $list = MemberModel::paginate($page,$simple=false,['type'=>'Bootstrap6']);
+//        //分页显示输出
+//        $page=$list->render();
+
+
+        $this -> view -> assign('page', $page);
         $this -> view -> assign('member', $MemberList);
         $this -> view -> assign('count', $count);
         //设置当前页面的seo模板变量

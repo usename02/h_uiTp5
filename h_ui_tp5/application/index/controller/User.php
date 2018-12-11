@@ -2,6 +2,7 @@
 /**管理员
  */
 namespace app\index\controller;
+use think\paginator\driver\Bootstrap3;
 use think\Request;
 use app\index\model\User as UserModel;
 use traits\model\SoftDelete;
@@ -84,8 +85,10 @@ class User extends  Base
         $userRole = Session::get('user_info.name');
 //var_dump($userRole);
         if ($userRole =='admin') {
-            $listRows = 5;//每页显示$page条数据
-            $list = UserModel::paginate($listRows, $simple = false);  //admin用户可以查看所有记录,数据要经过模型获取器处理
+            $listRows = 3;//每页显示$page条数据
+            $list = UserModel::paginate($listRows, $simple = false,[ 'type'=>'Bootstrap6' ]);
+                var_dump($list);
+ //admin用户可以查看所有记录,数据要经过模型获取器处理
             //分页显示输出
             $page=$list->render();
 //           总页数
@@ -97,7 +100,7 @@ class User extends  Base
             $list = UserModel::all(['name'=>$userRole]);
         }
         $this -> view -> assign('list', $list);
-
+var_dump($page);
         $this->assign('page', $page);
         //渲染管理员列表模板
         return $this -> view -> fetch('admin/admin-list');

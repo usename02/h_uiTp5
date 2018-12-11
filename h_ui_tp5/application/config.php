@@ -234,7 +234,7 @@ return [
 
     //分页配置
     'paginate'               => [
-        'type'      => 'bootstrap4',
+        'type'      => 'bootstrap3',
         'var_page'  => 'page',
         'list_rows' => 15,
     ],

@@ -54,15 +54,16 @@ class Shop extends Base
             //,保存到数组   $shopList中
             $shopList[] = $data;
         }
-        $page = 5;
-        $list = ShopModel::paginate($page);
+        $listRows = 5;
+        $list = ShopModel::paginate($listRows , $simple = false,[
+                    'type'=>'Bootstrap6'
+                                                            ]);
         //分页显示输出
         $page=$list->render();
-//        var_dump($shopList);
+        $this -> view -> assign('page', $page);
         $this -> view -> assign('list', $list);
-
         $this -> view -> assign('shop', $shopList);
-        $this -> view -> assign('count', $count);
+        $this -> view -> assign('count', $count);//总字段数
         //设置当前页面的seo模板变量
         $this->view->assign('title','编辑商铺');
         $this->view->assign('keywords','php.cn');

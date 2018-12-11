@@ -7,6 +7,7 @@ use traits\model\SoftDelete;
 
 class User extends Model
 {
+
     //导入软删除方法集
     use SoftDelete;
     //设置软删除字段
