@@ -15,9 +15,11 @@ class Search extends Base
 //        接收搜索栏输入的关键字
         $searchKeyword = input('searchKeyword');
 //        判断关键字是否为空
+//
         if ($searchKeyword){
 //             判断条件
             $map['name'] = ['like','%'.$searchKeyword.'%'];
+
             $searchres = Db::table('user')->where($map)->find();
             $this->assign( 'list',array(
                 'searchres'=>$searchres,

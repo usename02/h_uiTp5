@@ -49,7 +49,24 @@
                 <input type="text" class="input-text" placeholder="@" name="email" id="email" value="{$user_info.email}">
             </div>
         </div>
-
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机号：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" placeholder="" name="" id="phone" value="{$user_info.HANDSET}">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>所属店仓：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" placeholder="" name="" id="stome" value="{$user_info.STORE}">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>在职状态：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" placeholder="" name="" id="INCUMBENCY_STS" value="{$user_info.INCUMBENCY_STS}">
+            </div>
+        </div>
         {eq name="$Think.session.user_info.name" value="admin"}
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">角色：</label>

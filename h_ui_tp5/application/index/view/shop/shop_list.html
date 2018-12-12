@@ -109,15 +109,10 @@
             </div>
         </article>
     </div>
-<!--显示分页按钮-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">{$list->render()}</div>
-        <div class="col-md-4"></div>
-    </div>
-</div>
 {/block}
+<!--显示分页按钮-->
+{$page}
+
 <!--隐藏搜索框-->
 {block name='search'}{/block}
 {block name='js'}
